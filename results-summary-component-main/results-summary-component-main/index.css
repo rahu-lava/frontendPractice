@@ -1,0 +1,208 @@
+:root{
+    --height:340px;
+    --width:250px;
+    --White: hsl(0, 0%, 100%);
+--Paleblue: hsl(221, 100%, 96%);
+--Lightlavender: hsl(241, 100%, 89%);
+--Darkgrayblue: hsl(224, 30%, 27%);
+--Lightred: hsl(0, 100%, 67%);
+--Orangeyyellow: hsl(39, 100%, 56%);
+--Greenteal: hsl(166, 100%, 37%);
+--Cobaltblue: hsl(234, 85%, 45%);
+}
+@font-face{
+    font-family: custom1;
+    src: url(assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+main{
+        font-family: custom1;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+        border-radius: 24px;
+        box-shadow:12px 12px 46px -15px  var(--Lightlavender);
+}
+
+#result{
+    /* border: 2px solid; */
+    
+    border-radius: 24px;
+    height: var(--height);
+    width: var(--width);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-image:linear-gradient(hsl(252, 100%, 67%),hsl(241, 81%, 54%)) ;
+
+}
+.yourResult{
+    margin-top: 26px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--Lightlavender);
+}
+#resultTotal{
+    height: 80px;
+    width: 80px;
+    padding: 25px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(hsla(256, 72%, 46%, 1),hsla(241, 72%, 46%, 0));
+}
+.resultMarks{
+    font-size: 55px;
+    font-weight: 800;
+    margin: 0px;
+    color: var(--White);
+}
+.resultoutof{
+    margin: 0px;
+    font-size: 13px;
+    font-weight: 700;
+    color:hsla(241, 100%, 89%,0.4) ;
+}
+.resultdetail{
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0px;
+    color:hsla(241, 100%, 89%,0.6);
+}
+.resultRemark{
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--White);
+    margin-bottom: 10px;
+}
+
+#summary{
+        height: var(--height);
+        width: var(--width);
+        border-radius: 0px 24px 24px 0px;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* margin: 54px; */
+
+    
+}
+#summary >p{
+    font-weight: 800;
+    margin-left: 24px;
+    margin-top: 26px;
+}
+
+.specific{
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 10px;
+}    
+.summaryName img{
+    height: 14px;
+    width: 14px;
+}
+.specific div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.summaryButton{
+    margin-left: 24px;
+    margin-right: 24px;
+}
+button{
+    margin: auto;
+    margin-top: 14px;
+    /* position: absolute; */
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--Paleblue);
+    background-color: var(--Darkgrayblue);
+    border: none;
+    border-radius: 24px;
+    
+}
+button:hover{
+    background-image:linear-gradient(hsl(252, 100%, 67%),hsl(241, 81%, 54%)) ;
+}
+.summaryName{
+    font-weight: 600;
+}
+.summaryMarks{
+    font-weight: 800;
+    color: var(--Darkgrayblue);
+}
+
+    
+
+.outof{
+    font-weight: 800;
+    color:rgb(161, 161, 183)
+}
+.reaction .summaryName span{
+    color: var(--Lightred);
+}
+.reaction{
+    background-color: hsla(0, 100%, 67%,0.06);
+}
+.memory .summaryName span{
+    color: var(--Orangeyyellow);
+}
+.memory{
+    background-color:hsla(39, 100%, 56%,0.06) ;
+}
+.verbal .summaryName span{
+    color: var(--Greenteal);
+}
+.verbal{
+    background-color: hsla(166, 100%, 37%,0.06);
+}
+.visual .summaryName span{
+    color: var(--Cobaltblue);
+}
+.visual{
+    background-color:hsla(234, 85%, 45%,0.06) ;
+}
+
+@media (width<550px) {
+    body{
+        margin: 0px;
+    }
+    main{
+        flex-direction: column;
+        width: 100%;
+        margin: 0px;
+
+    }
+    #result{
+       width:100%;
+       border-radius: 0px 0px 24px 24px;
+    }
+    #summary{
+        width: 100%;
+    }
+    button{
+        width: 100%;
+        padding: 16px;
+    }
+    
+}
