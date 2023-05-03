@@ -1,6 +1,6 @@
-let dobb = 30;
-let dobm = 08;
-let doby = 2021;
+let dobd;
+let dobm;
+let doby;
 
 const date = new Date();
 const year = date.getFullYear();
@@ -18,28 +18,25 @@ let dayError = document.querySelector("#dayTargeted");
 let monthError = document.querySelector("#monthTargeted");
 let yearError = document.querySelector("#yearTargeted");
 let redFontError = document.querySelectorAll("label");
-let button=document.querySelector("button")
+let button = document.querySelector("button");
 
-var mediaQuery=window.matchMedia("(width<600px)")
+var mediaQuery = window.matchMedia("(width<600px)");
 
-const buttonPlacementAfterError=()=>{
-  if(mediaQuery.matches){
-    button.style.top="84%"
+const buttonPlacementAfterError = () => {
+  if (mediaQuery.matches) {
+    button.style.top = "84%";
+  } else {
+    button.style.top = "105%";
   }
-  else{
-    button.style.top="105%"
-  }
-}
+};
 
-const buttonPlacementNoError=()=>{
-  if(mediaQuery.matches){
-    button.style.top="80%"
+const buttonPlacementNoError = () => {
+  if (mediaQuery.matches) {
+    button.style.top = "80%";
+  } else {
+    button.style.top = "105%";
   }
-  else{
-    button.style.top="105%"
-  }
-}
-
+};
 
 const headLabelRed = () => {
   redFontError[0].style.color = "hsl(0, 100%, 67%)";
@@ -54,21 +51,16 @@ const headLabelRevert = () => {
 };
 headLabelRevert();
 
-// console.log(Dob_day,Dob_month,Dob_year)
+console.log(Dob_day, Dob_month, Dob_year);
 document.querySelector(".button").addEventListener("click", (event) => {
   event.preventDefault();
-  dobb = dobDay.value;
+  dobd = dobDay.value;
   dobm = dobMonth.value;
   doby = dobYear.value;
-  ageCalculator(day, month, year, dobb, dobm, doby);
+  ageCalculator(day, month, year, dobd, dobm, doby);
 });
 
-// const dob=new Date("2004/02/31")
-
-console.log("Today:", year + "/" + month + "/" + day);
-console.log("DOB:", doby + "/" + dobm + "/" + dobb);
-
-let ageCalculator = (day, month, year, dobb, dobm, doby) => {
+let ageCalculator = (day, month, year, dobd, dobm, doby) => {
   var monthPicker = (dobm, doby) => {
     if (
       dobm == 1 ||
@@ -94,8 +86,8 @@ let ageCalculator = (day, month, year, dobb, dobm, doby) => {
   };
   var monthLimit = monthPicker(dobm, doby);
 
-  const correctValueAfterWrong = (dobb, doby, monthLimit, year) => {
-    if (dobb <= monthLimit) {
+  const correctValueAfterWrong = (dobd, doby, monthLimit, year) => {
+    if (dobd <= monthLimit) {
       dayError.textContent = "";
     }
     if (month < 13) {
@@ -105,39 +97,35 @@ let ageCalculator = (day, month, year, dobb, dobm, doby) => {
       yearError.textContent = "";
     }
   };
-  correctValueAfterWrong(dobb, doby, monthLimit, year);
+  correctValueAfterWrong(dobd, doby, monthLimit, year);
 
-  var daysCalculator = (day, dobb, doby) => {
-    if (day > dobb) {
-      return day - dobb;
+  var daysCalculator = (day, dobd, doby) => {
+    if (day > dobd) {
+      return day - dobd;
     } else {
       var previousMonthPicker = monthPicker(month - 1, doby);
-      return previousMonthPicker - dobb + day;
+      return previousMonthPicker - dobd + day;
     }
   };
 
   if ((doby == year && dobm >= month) || (doby == year && dobm < month)) {
-    if (dobm > month && dobb > monthLimit) {
+    if (dobm > month && dobd > monthLimit) {
       dayError.textContent = "Must be a valid date";
       monthError.textContent = "Must be in past";
       headLabelRed();
       ageDisplayDay.textContent = "--";
       ageDisplayMonth.textContent = "--";
       ageDisplayYear.textContent = "--";
-      buttonPlacementAfterError()
-      console.log("month and Date is targeted");
-    } else if (dobm <= month && dobb > monthLimit) {
+      buttonPlacementAfterError();
+    } else if (dobm <= month && dobd > monthLimit) {
       dayError.textContent = "Must be a valid date";
       headLabelRed();
       ageDisplayDay.textContent = "--";
       ageDisplayMonth.textContent = "--";
       ageDisplayYear.textContent = "--";
-      buttonPlacementAfterError()
-      console.log("only date is targeted");
-    } else if (dobm == month && dobb >= day) {
-      if (dobb == day) {
-        console.log("Age is Zero");
-
+      buttonPlacementAfterError();
+    } else if (dobm == month && dobd >= day) {
+      if (dobd == day) {
         ageDisplayDay.textContent = 0;
         ageDisplayMonth.textContent = 0;
         ageDisplayYear.textContent = 0;
@@ -145,51 +133,38 @@ let ageCalculator = (day, month, year, dobb, dobm, doby) => {
         monthError.textContent = "";
         yearError.textContent = "";
         headLabelRevert();
-        buttonPlacementNoError()
+        buttonPlacementNoError();
       } else {
         dayError.textContent = "Must be in past";
         headLabelRed();
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
         ageDisplayYear.textContent = "--";
-        buttonPlacementAfterError()
-        console.log("Date is Targeted");
+        buttonPlacementAfterError();
       }
-    } else if (dobm > month && dobb <= monthLimit ) {
-      if(dobm > 12){
+    } else if (dobm > month && dobd <= monthLimit) {
+      if (dobm > 12) {
         monthError.textContent = "Must be a valid month";
         headLabelRed();
-      ageDisplayDay.textContent = "--";
-      ageDisplayMonth.textContent = "--";
-      ageDisplayYear.textContent = "--";
-      buttonPlacementAfterError()
-      }else{
-
+        ageDisplayDay.textContent = "--";
+        ageDisplayMonth.textContent = "--";
+        ageDisplayYear.textContent = "--";
+        buttonPlacementAfterError();
+      } else {
         monthError.textContent = "Must be in past";
         headLabelRed();
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
         ageDisplayYear.textContent = "--";
-        buttonPlacementAfterError()
-        console.log("only month is targeted", "must be in past");
+        buttonPlacementAfterError();
       }
     } else if (doby == year) {
       let cuurYearMonth = month - dobm - 1;
-      if (dobb < day) {
+      if (dobd < day) {
         cuurYearMonth += 1;
       }
       let cuurYear = year - doby;
-      let cuurYearDays = daysCalculator(day, dobb, doby);
-
-      console.log(
-        cuurYear,
-        "Years",
-        cuurYearMonth,
-        "Months",
-        cuurYearDays,
-        "Days"
-      );
-
+      let cuurYearDays = daysCalculator(day, dobd, doby);
       ageDisplayDay.textContent = cuurYearDays;
       ageDisplayMonth.textContent = cuurYearMonth;
       ageDisplayYear.textContent = cuurYear;
@@ -197,24 +172,23 @@ let ageCalculator = (day, month, year, dobb, dobm, doby) => {
       monthError.textContent = "";
       yearError.textContent = "";
       headLabelRevert();
-      buttonPlacementNoError()
+      buttonPlacementNoError();
     }
   } else if (
-    dobb > monthLimit ||
+    dobd > monthLimit ||
     dobm > 12 ||
     doby > year ||
-    dobb < 1 ||
+    dobd < 1 ||
     dobm < 1 ||
     doby < 1
   ) {
-    if (dobb > monthLimit || dobb < 1) {
+    if (dobd > monthLimit || dobd < 1) {
       dayError.textContent = "Must be a valid date";
       headLabelRed();
       ageDisplayDay.textContent = "--";
       ageDisplayMonth.textContent = "--";
       ageDisplayYear.textContent = "--";
-      buttonPlacementAfterError()
-      console.log("Must be a valid Date");
+      buttonPlacementAfterError();
     }
     if (dobm > 12 || dobm < 1) {
       monthError.textContent = "Must be a valid month";
@@ -222,8 +196,7 @@ let ageCalculator = (day, month, year, dobb, dobm, doby) => {
       ageDisplayDay.textContent = "--";
       ageDisplayMonth.textContent = "--";
       ageDisplayYear.textContent = "--";
-      console.log("Must be a valid Month");
-      buttonPlacementAfterError()
+      buttonPlacementAfterError();
     }
     if (doby > year || doby < 1) {
       if (doby < 1) {
@@ -232,26 +205,25 @@ let ageCalculator = (day, month, year, dobb, dobm, doby) => {
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
         ageDisplayYear.textContent = "--";
-        buttonPlacementAfterError()
+        buttonPlacementAfterError();
       } else {
         yearError.textContent = "Must be in past";
         headLabelRed();
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
         ageDisplayYear.textContent = "--";
-        buttonPlacementAfterError()
-        console.log("Must be in past Year");
+        buttonPlacementAfterError();
       }
     }
   } else {
     let ageYear = year - 1 - doby;
     let remainingMonth = 12 - dobm + month;
-    let ageDays = daysCalculator(day, dobb, doby);
+    let ageDays = daysCalculator(day, dobd, doby);
     if (remainingMonth > 12) {
       remainingMonth -= 12;
       ageYear += 1;
     }
-    if (dobb > day) {
+    if (dobd > day) {
       remainingMonth -= 1;
       if (remainingMonth < 0) {
         remainingMonth = 11;
@@ -264,7 +236,6 @@ let ageCalculator = (day, month, year, dobb, dobm, doby) => {
     monthError.textContent = "";
     yearError.textContent = "";
     headLabelRevert();
-    buttonPlacementNoError()
-    console.log(ageYear, "Years", remainingMonth, "Months", ageDays, "Days");
+    buttonPlacementNoError();
   }
 };
