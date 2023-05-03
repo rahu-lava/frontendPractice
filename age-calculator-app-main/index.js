@@ -19,8 +19,23 @@ let monthError = document.querySelector("#monthTargeted");
 let yearError = document.querySelector("#yearTargeted");
 let redFontError = document.querySelectorAll("label");
 let button = document.querySelector("button");
-
 var mediaQuery = window.matchMedia("(width<600px)");
+var inputElement=document.querySelectorAll("input")
+
+
+const inputBorderRed=()=>{
+  inputElement[0].style.border="1px solid hsl(0, 100%, 67%)"
+  inputElement[1].style.border="1px solid hsl(0, 100%, 67%)"
+  inputElement[2].style.border="1px solid hsl(0, 100%, 67%)"
+}
+
+const inputBorderRevert=()=>{
+  inputElement[0].style.border="1px solid hsl(0, 0%, 86%)"
+  inputElement[1].style.border="1px solid hsl(0, 0%, 86%)"
+  inputElement[2].style.border="1px solid hsl(0, 0%, 86%)"
+}
+
+
 
 const buttonPlacementAfterError = () => {
   if (mediaQuery.matches) {
@@ -42,16 +57,18 @@ const headLabelRed = () => {
   redFontError[0].style.color = "hsl(0, 100%, 67%)";
   redFontError[2].style.color = "hsl(0, 100%, 67%)";
   redFontError[4].style.color = "hsl(0, 100%, 67%)";
+  inputBorderRed()
 };
 
 const headLabelRevert = () => {
-  redFontError[0].style.color = "hsl(0, 1%, 44%";
-  redFontError[2].style.color = "hsl(0, 1%, 44%";
-  redFontError[4].style.color = "hsl(0, 1%, 44%";
+  redFontError[0].style.color = "hsl(0, 1%, 44%)";
+  redFontError[2].style.color = "hsl(0, 1%, 44%)";
+  redFontError[4].style.color = "hsl(0, 1%, 44%)";
+  inputBorderRevert()
 };
-headLabelRevert();
+// headLabelRevert();
 
-console.log(Dob_day, Dob_month, Dob_year);
+
 document.querySelector(".button").addEventListener("click", (event) => {
   event.preventDefault();
   dobd = dobDay.value;
@@ -107,6 +124,7 @@ let ageCalculator = (day, month, year, dobd, dobm, doby) => {
       return previousMonthPicker - dobd + day;
     }
   };
+
 
   if ((doby == year && dobm >= month) || (doby == year && dobm < month)) {
     if (dobm > month && dobd > monthLimit) {
@@ -183,30 +201,59 @@ let ageCalculator = (day, month, year, dobd, dobm, doby) => {
     doby < 1
   ) {
     if (dobd > monthLimit || dobd < 1) {
-      dayError.textContent = "Must be a valid date";
-      headLabelRed();
-      ageDisplayDay.textContent = "--";
-      ageDisplayMonth.textContent = "--";
-      ageDisplayYear.textContent = "--";
-      buttonPlacementAfterError();
+      if(dobd == "") {
+        dayError.textContent = "This field is required";
+        headLabelRed();
+        ageDisplayDay.textContent = "--";
+        ageDisplayMonth.textContent = "--";
+        ageDisplayYear.textContent = "--";
+        buttonPlacementAfterError();
+      }
+      else {
+        dayError.textContent = "Must be a valid date";
+        headLabelRed();
+        ageDisplayDay.textContent = "--";
+        ageDisplayMonth.textContent = "--";
+        ageDisplayYear.textContent = "--";
+        buttonPlacementAfterError();
+      }
     }
     if (dobm > 12 || dobm < 1) {
-      monthError.textContent = "Must be a valid month";
-      headLabelRed();
-      ageDisplayDay.textContent = "--";
-      ageDisplayMonth.textContent = "--";
-      ageDisplayYear.textContent = "--";
-      buttonPlacementAfterError();
+      if(dobm == "") {
+        monthError.textContent = "This field is required";
+        headLabelRed();
+        ageDisplayDay.textContent = "--";
+        ageDisplayMonth.textContent = "--";
+        ageDisplayYear.textContent = "--";
+        buttonPlacementAfterError();
+      }
+      else{
+        monthError.textContent = "Must be a valid month";
+        headLabelRed();
+        ageDisplayDay.textContent = "--";
+        ageDisplayMonth.textContent = "--";
+        ageDisplayYear.textContent = "--";
+        buttonPlacementAfterError();
+      }
     }
     if (doby > year || doby < 1) {
-      if (doby < 1) {
+      if(doby == "") {
+        yearError.textContent = "This field is required";
+        headLabelRed();
+        ageDisplayDay.textContent = "--";
+        ageDisplayMonth.textContent = "--";
+        ageDisplayYear.textContent = "--";
+        buttonPlacementAfterError();
+      }
+      else if (doby < 1) {
         yearError.textContent = "Must be a valid year";
         headLabelRed();
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
         ageDisplayYear.textContent = "--";
         buttonPlacementAfterError();
-      } else {
+      }
+       else {
         yearError.textContent = "Must be in past";
         headLabelRed();
         ageDisplayDay.textContent = "--";

@@ -57,18 +57,18 @@ input{
     max-width:85px ;
     font-size: 20px;
     outline: none;
-    border: 2px solid var(--Lightgrey);
+    border: 1px solid var(--Lightgrey);
     border-radius: 6px ;
 }
 
 
 #dayTargeted,#monthTargeted,#yearTargeted{
+    font-weight: 500;
     font-family: popitalic;
     color: var(--Lightred);
 }
-
 input:hover,input:focus{
-    border: 2px solid var(--Offblack);
+    border: 1px solid var(--Offblack);
 }
 
 label{
