@@ -214,7 +214,7 @@ let ageCalculator = (day, month, year, dobd, dobm, doby) => {
   ) {
     if (dobd > monthLimit || dobd < 1) {
       if(dobd == "") {
-        dayError.textContent = "This field is required";
+        dayError.textContent = "This field is required. (Number)";
         headLabelRed();
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
@@ -232,7 +232,7 @@ let ageCalculator = (day, month, year, dobd, dobm, doby) => {
     }
     if (dobm > 12 || dobm < 1) {
       if(dobm == "") {
-        monthError.textContent = "This field is required";
+        monthError.textContent = "This field is required. (Number)";
         headLabelRed();
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
@@ -250,7 +250,7 @@ let ageCalculator = (day, month, year, dobd, dobm, doby) => {
     }
     if (doby > year || doby < 1) {
       if(doby == "") {
-        yearError.textContent = "This field is required";
+        yearError.textContent = "This field is required. (Number)";
         headLabelRed();
         ageDisplayDay.textContent = "--";
         ageDisplayMonth.textContent = "--";
