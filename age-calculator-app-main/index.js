@@ -23,6 +23,18 @@ var mediaQuery = window.matchMedia("(width<600px)");
 var inputElement=document.querySelectorAll("input")
 
 
+for(let i=0;i<3;i++){
+  inputElement[i].addEventListener("focusin",(event)=>{
+    inputElement[i].style.border="1px solid hsl(0, 0%, 0%)"
+  })
+  inputElement[i].addEventListener("focusout",(event)=>{
+  inputElement[i].style.border="1px solid hsl(0, 0%, 86%)"
+  })
+}
+
+
+
+
 const inputBorderRed=()=>{
   inputElement[0].style.border="1px solid hsl(0, 100%, 67%)"
   inputElement[1].style.border="1px solid hsl(0, 100%, 67%)"
