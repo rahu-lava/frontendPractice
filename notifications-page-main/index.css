@@ -1,0 +1,207 @@
+:root{
+   --White: hsl(0, 0%, 100%);
+   --Verylightgrayishblue: hsl(210, 60%, 98%);
+   --Lightgrayishblue1: hsl(211, 68%, 94%);
+   --Lightgrayishblue2: hsl(205, 33%, 90%);
+   --Grayishblue: hsl(219, 14%, 63%);
+   --Darkgrayishblue: hsl(219, 12%, 42%);
+   --Verydarkblue: hsl(224, 21%, 14%);
+   --Red: hsl(1, 90%, 64%);
+   --Blue: hsl(219, 85%, 26%);
+}
+
+@font-face {
+    font-family:plus ;
+    src: url(assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+body{
+    font-family: plus;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: var(--Verylightgrayishblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+main{
+    color: var(--Darkgrayishblue);
+    width: 50%;
+    background-color: var(--White);
+    border-radius: 12px;
+    /* margin-top: 100px; */
+    /* margin: auto; */
+    
+}
+.notification-information{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 28px 28px 28px 28px;
+}
+.notification-count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.notification-count div{
+    background-color: var(--Blue);
+    padding: 2px 12px 2px 10px;
+    font-weight: 500;
+    color: var(--White);
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+.notification-count >p{
+    font-size: 24px;
+    color: var(--Verydarkblue);
+    font-weight: 800;
+    margin: 0px;
+}
+
+button:hover{
+    color: var(--Blue);
+}
+
+.dotted{
+    display: inline-block;
+    height: 8px;
+    width: 3px;
+    border-radius: 50%;
+    margin-left: 6px;
+    margin-bottom: 1px;
+    background-color:var(--Red);
+}
+
+button{
+    background-color: var(--White);
+    outline: none;
+    border: none;
+    color: var(--Darkgrayishblue);
+    font-weight: 600;
+}
+.notification-box{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 28px 0px 28px;
+}
+.notification{
+    display: flex;
+    gap: 16px;
+    padding: 12px 16px 12px 16px;
+    border-radius: 10px;
+    
+}
+.notification-image img{
+    height: 40px;
+    width: 40px;
+}
+.secret-message p{
+    border: 1px solid var(--Grayishblue);
+    width: 88%;
+    border-radius: 6px;
+    padding: 14px;
+}
+
+.secret-message p:hover{
+    background-color: var(--Lightgrayishblue1);
+}
+
+.notification-content-chess{
+    display: flex;
+    /* position: relative; */
+    /* justify-content: space-between; */
+}
+.notification-chess{
+    display: flex;
+    position: relative;
+    gap: 16px;
+    /* align-items: center; */
+    padding: 10px 64px 10px 16px;
+    /* border: 1px solid; */
+    border-radius: 10px;
+}
+.notification-content-chess section img{
+    position: absolute;
+    right: 16px;
+    /* align-items: center; */
+}
+
+
+.notification-content-chess img{
+    height: 40px;
+    width: 40px;
+}
+
+strong{
+    font-weight: 800;
+    padding-right: 5px;
+    color: var(--Verydarkblue);
+}
+strong:hover,strong:focus{
+    color: var(--Blue);
+}
+span{
+    padding-left: 5px;
+    color: var(--Darkgrayishblue);
+    font-weight: 800;
+}
+
+span:hover{
+    color: var(--Blue);
+}
+
+.chess{
+    font-weight: 800;
+    color: var(--Blue);
+}
+
+.notification-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.notification-para{
+    margin: 0px;
+}
+
+.notification-time{
+    color: var(--Grayishblue);
+}
+.dot{
+    background-color: var(--Verylightgrayishblue);
+}
+
+
+@media(width<1200px){
+    main{
+        width: 70%;
+    }
+}
+
+@media(width<600px){
+    body{
+        margin: 0px;
+        align-items: start;
+    }
+    main{
+        font-size: 12px;
+        width: 100%;
+        /* margin: auto */
+        ;
+    }
+    .notification-box{
+        margin: 24px 14px 2px 14px;
+    }
+    .notification-information{
+        margin: 24px 14px 10px 14px ;
+    }
+    .notification-information p{
+        font-size: 18px;
+
+    }
+}
