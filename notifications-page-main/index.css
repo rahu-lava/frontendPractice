@@ -72,7 +72,7 @@ button:hover{
     width: 3px;
     border-radius: 50%;
     margin-left: 6px;
-    margin-bottom: 1px;
+    /* margin-bottom: 1px; */
     background-color:var(--Red);
 }
 
