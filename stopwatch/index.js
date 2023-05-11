@@ -70,8 +70,8 @@ const minuteChanger = () => {
     hourColon.style.display = "revert";
     hourBeforeColon.style.display = "flex";
     timeMs.style.width = "134%";
-    let mediaQuery = window.matchMedia("(width < 350px)")
-    if(mediaQuery.matches){
+    let mediaQuery = window.matchMedia("(width < 350px)");
+    if (mediaQuery.matches) {
       timeMs.style.width = "100%";
     }
     addtwodigitKeeperM();
@@ -120,7 +120,6 @@ const msChanger = () => {
 
 var playPauseButton = document.querySelector(".playPause");
 var pause = document.querySelector(".pause");
-var resume = document.querySelector(".resume");
 var reset = document.querySelector(".reset");
 var timelaps = document.querySelector(".time-laps");
 var displayTime = document.querySelector(".display-time");
@@ -135,9 +134,20 @@ var lapsCount = 0;
 lapsDisplay.style.display = "none";
 reset.style.display = "none";
 pause.style.display = "none";
-resume.style.display = "none";
 timelaps.style.display = "none";
 var textCount = 0;
+
+const blinknone = () => {
+  document.querySelector(".time").style.display = "none";
+  document.querySelector(".time-ms").style.display = "none";
+};
+
+const blinkrevert = () => {
+  document.querySelector(".time").style.display = "revert";
+  document.querySelector(".time-ms").style.display = "revert";
+  document.querySelector(".time").style.display = "flex";
+  document.querySelector(".time-ms").style.display = "flex";
+};
 
 playPauseButton.addEventListener("click", () => {
   var secondInterval = setInterval(secondChanger, 1000);
@@ -150,16 +160,11 @@ playPauseButton.addEventListener("click", () => {
   pause.addEventListener("click", () => {
     clearInterval(secondInterval);
     clearInterval(msInterval);
-  
+
     var blinkout = setInterval(blinkrevert, 500);
     var blinkin = setInterval(blinknone, 1000);
 
-    resume.addEventListener("click", () => {
-      clearInterval(blinkin);
-      clearInterval(blinkout);
-      blinkrevert();
-    });
-    resume.addEventListener("click", () => {
+    playPauseButton.addEventListener("click", () => {
       clearInterval(blinkin);
       clearInterval(blinkout);
       blinkrevert();
@@ -170,25 +175,8 @@ playPauseButton.addEventListener("click", () => {
       blinkrevert();
     });
     pause.style.display = "none";
-    resume.style.display = "revert";
+    playPauseButton.style.display = "revert";
     timelaps.style.display = "none";
-  });
-
-  resume.addEventListener("click", () => {
-    secondInterval = setInterval(secondChanger, 1000);
-    msInterval = setInterval(msChanger, 10);
-    // var blinkin = setInterval(blinknone,500)
-    // var blinkout =  setInterval(blinkrevert,1000)
-
-    resume.style.display = "none";
-    pause.style.display = "revert";
-    timelaps.style.display = "revert";
-
-    pause.addEventListener("click", () => {
-      clearInterval(secondInterval);
-      clearInterval(msInterval);
-      timelaps.style.display = "none";
-    });
   });
 
   reset.addEventListener("click", () => {
@@ -196,7 +184,6 @@ playPauseButton.addEventListener("click", () => {
     for (let i = 0; i < textCount; i++) {
       textlaps[i].style.display = "none";
     }
-    // textCount = 0
     timePeriodOfHour = 0;
     timePeriodOfMinute = 0;
     timePeriodOfsecond = 0;
@@ -207,10 +194,10 @@ playPauseButton.addEventListener("click", () => {
     ms.textContent = timePeriodOfMs;
     playPauseButton.style.display = "revert";
     pause.style.display = "none";
-    resume.style.display = "none";
     clearInterval(secondInterval);
     clearInterval(msInterval);
     addtwodigitKeeperMs();
+    addtwodigitKeeperS();
     hourBeforeColon.style.display = "none";
     minuteBeforeColon.style.display = "none";
     minuteColon.style.display = "none";
@@ -286,16 +273,3 @@ timelaps.addEventListener("click", () => {
     textCount += 1;
   }
 });
-
-const blinknone = () => {
-  document.querySelector(".time").style.display = "none";
-  document.querySelector(".time-ms").style.display = "none";
-};
-
-const blinkrevert = () => {
-  document.querySelector(".time").style.display = "revert";
-  document.querySelector(".time-ms").style.display = "revert";
-  document.querySelector(".time").style.display = "flex";
-  document.querySelector(".time-ms").style.display = "flex";
-};
-

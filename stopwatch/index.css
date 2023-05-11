@@ -8,7 +8,6 @@
 }
 
 body {
-  /* width: 93vw; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +22,6 @@ main {
   height: 100%;
   color: aliceblue;
   background-color: black;
-  /* border: 2px solid  ; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +33,6 @@ main {
   font-family: popinsBold;
   display: flex;
   align-items: center;
-  /* border: 2px solid; */
 }
 
 .time p {
@@ -46,7 +43,6 @@ main {
 .hour,
 .minute,
 .second {
-  /* border: 2px solid; */
   height: 72px;
   width: 72px;
   display: flex;
@@ -67,10 +63,6 @@ main {
   margin-top: 100px;
 }
 
-/* .minute{
-    display: flex;
-} */
-
 .time-ms,
 .ms {
   display: flex;
@@ -79,12 +71,7 @@ main {
   font-size: 40px;
   height: 40px;
   font-family: popinsBold;
-  /* width:35%; */
-  /* width: 134%;    */
-  /*for hour*/
   width: 85%;
-  /*for minute*/
-  /* border: 2px solid; */
 }
 
 .laps-display {
@@ -92,14 +79,12 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* width: 100%; */
 }
 
 .laps-display > section {
   display: flex;
   gap: 6px;
   justify-content: center;
-  /* background-color: aliceblue; */
   border-radius: 0px 0px 25px 25px;
 }
 
@@ -109,9 +94,6 @@ main {
   display: flex;
   flex-direction: column;
   height: 25vh;
-  /* justify-content: center; */
-  /* overflow: hidden; */
-  /* overflow-y: scroll; */
 }
 
 .overflow {
@@ -120,7 +102,7 @@ main {
   justify-content: center;
   overflow: hidden;
   overflow-y: scroll;
-  scrollbar-width:none ;
+  scrollbar-width: none;
 }
 
 .numbering p {
@@ -132,14 +114,11 @@ main {
   display: none;
 }
 
-
 .display-time {
   font-size: 16px;
   display: flex;
   height: 25vh;
   justify-content: center;
-  /* overflow: hidden; */
-  /* overflow-y: scroll; */
 }
 
 .display-time section {
@@ -166,7 +145,6 @@ main {
 }
 
 .playPause,
-.resume,
 .pause {
   position: relative;
   border-radius: 50%;
@@ -174,17 +152,12 @@ main {
   width: 100px;
   border: none;
   background-color: rgb(105, 155, 155);
-  transition: all 1s ease-in-out;
-  /* transition: all 2s ease-in-out; */
 }
 
 .buttonChange {
-
-  /* padding-top: 20px; */
-  /* height: 500px; */
   background-color: rgba(0, 0, 0, 0.618);
 }
-.buttonChange button{
+.buttonChange button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -199,14 +172,6 @@ main {
   background-color: rgb(105, 155, 155);
 }
 
-.resume {
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  border: none;
-  background-color: rgb(105, 155, 155);
-}
-
 .reset,
 .time-laps {
   height: 60px;
@@ -216,39 +181,32 @@ main {
   background-color: rgb(138, 106, 169);
 }
 
-/* .hour,.hourName,.minute,.minuteName{
-    display: none;
-} */
 
-
-@media(width<350px){
-  body{
+@media (width<350px) {
+  body {
     font-size: 35px;
   }
-  .ms{
+  .ms {
     font-size: 35px;
     font-family: popinsBold;
   }
-
-  /* .time-ms{
-    width: 50%;
-  } */
-  .running-timer{
+  .running-timer {
     padding: 20px;
   }
-  .action section{
+  .action section {
     width: 90px;
   }
-  .playPause,.resume{
+  .playPause {
     height: 80px;
     width: 80px;
     border-radius: 50%;
   }
-  .pause{
+  .pause {
     height: 80px;
     width: 100px;
   }
-  .reset,.time-laps{
+  .reset,
+  .time-laps {
     height: 50px;
     width: 50px;
   }
