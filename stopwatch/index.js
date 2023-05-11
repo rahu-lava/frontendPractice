@@ -64,7 +64,7 @@ const HourChanger = () => {
 };
 
 const minuteChanger = () => {
-  if (timePeriodOfMinute === 10) {
+  if (timePeriodOfMinute === 59) {
     HourChanger();
     hourBeforeColon.style.display = "revert";
     hourColon.style.display = "revert";
@@ -87,13 +87,12 @@ const minuteChanger = () => {
 };
 
 const secondChanger = () => {
-  if (timePeriodOfsecond === 10) {
+  if (timePeriodOfsecond === 59) {
     minuteChanger();
     minuteBeforeColon.style.display = "revert";
     minuteColon.style.display = "revert";
     minuteBeforeColon.style.display = "flex";
     addtwodigitKeeperS();
-    // addtwodigitKeeperM()
     timePeriodOfsecond = 0;
     second.textContent = timePeriodOfsecond;
   } else {
@@ -141,7 +140,7 @@ timelaps.style.display = "none";
 var textCount = 0;
 
 playPauseButton.addEventListener("click", () => {
-  var secondInterval = setInterval(secondChanger, 100);
+  var secondInterval = setInterval(secondChanger, 1000);
   var msInterval = setInterval(msChanger, 10);
   playPauseButton.style.display = "none";
   pause.style.display = "revert";
@@ -151,8 +150,9 @@ playPauseButton.addEventListener("click", () => {
   pause.addEventListener("click", () => {
     clearInterval(secondInterval);
     clearInterval(msInterval);
-    const blinkin = setInterval(blinknone, 500);
-    const blinkout = setInterval(blinkrevert, 1000);
+  
+    var blinkout = setInterval(blinkrevert, 500);
+    var blinkin = setInterval(blinknone, 1000);
 
     resume.addEventListener("click", () => {
       clearInterval(blinkin);
@@ -175,7 +175,7 @@ playPauseButton.addEventListener("click", () => {
   });
 
   resume.addEventListener("click", () => {
-    secondInterval = setInterval(secondChanger, 100);
+    secondInterval = setInterval(secondChanger, 1000);
     msInterval = setInterval(msChanger, 10);
     // var blinkin = setInterval(blinknone,500)
     // var blinkout =  setInterval(blinkrevert,1000)
@@ -287,14 +287,15 @@ timelaps.addEventListener("click", () => {
   }
 });
 
-var blinknone = () => {
+const blinknone = () => {
   document.querySelector(".time").style.display = "none";
   document.querySelector(".time-ms").style.display = "none";
 };
 
-var blinkrevert = () => {
+const blinkrevert = () => {
   document.querySelector(".time").style.display = "revert";
   document.querySelector(".time-ms").style.display = "revert";
   document.querySelector(".time").style.display = "flex";
   document.querySelector(".time-ms").style.display = "flex";
 };
+

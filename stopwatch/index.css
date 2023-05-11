@@ -78,6 +78,7 @@ main {
   align-items: center;
   font-size: 40px;
   height: 40px;
+  font-family: popinsBold;
   /* width:35%; */
   /* width: 134%;    */
   /*for hour*/
@@ -119,6 +120,7 @@ main {
   justify-content: center;
   overflow: hidden;
   overflow-y: scroll;
+  scrollbar-width:none ;
 }
 
 .numbering p {
@@ -129,6 +131,7 @@ main {
 .overflow::-webkit-scrollbar {
   display: none;
 }
+
 
 .display-time {
   font-size: 16px;
