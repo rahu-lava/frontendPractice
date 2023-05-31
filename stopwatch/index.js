@@ -149,6 +149,7 @@ const blinkrevert = () => {
   document.querySelector(".time-ms").style.display = "flex";
 };
 
+
 playPauseButton.addEventListener("click", () => {
   var secondInterval = setInterval(secondChanger, 1000);
   var msInterval = setInterval(msChanger, 10);
