@@ -250,9 +250,9 @@ playPauseButton.addEventListener("click", () => {
        playPauseButton.style.borderRadius = "50%";
        pause.style.width = "100px";
        pause.style.borderRadius = "50%";
-     },10)
+       document.querySelector("header").style.display = "revert";
+     },200)
      document.querySelector(".overflow").style.height = "4vh"
-    
   });
 });
 
@@ -261,6 +261,7 @@ playPauseButton.addEventListener("click", () => {
 timelaps.addEventListener("click", () => {
   lapsDisplay.style.display = "revert";
   document.querySelector(".running-timer").style.marginTop = "10px";
+  document.querySelector("header").style.display = "none";
   
   lapsCount += 1;
   if (timePeriodOfHour < 10) {
