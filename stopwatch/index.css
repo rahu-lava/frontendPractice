@@ -85,7 +85,8 @@ main {
   display: flex;
   gap: 6px;
   justify-content: center;
-  border-radius: 0px 0px 25px 25px;
+  /* border-radius: 0px 0px 25px 25px; */
+  
 }
 
 .numbering {
@@ -98,7 +99,7 @@ main {
 
 .overflow {
   display: flex;
-  height: 35vh;
+  /* height: 4vh; */
   justify-content: center;
   overflow: hidden;
   overflow-y: scroll;
@@ -132,32 +133,31 @@ main {
 
 .action {
   display: flex;
-  margin-top: 45px;
+  position: absolute;
+  bottom: 2%;
+  backdrop-filter: blur(0.75px);
 }
 
 .action section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
-  width: 120px;
+  height: 130px;
+  width: 160px;
   margin: 0px;
 }
 
-.playPause,
-.pause {
+.playPause
+{
   position: relative;
   border-radius: 50%;
   height: 100px;
   width: 100px;
   border: none;
   background-color: rgb(105, 155, 155);
-}
-
-.buttonChange {
-  background-color: rgba(0, 0, 0, 0.618);
   
 }
+
 .buttonChange button {
   display: flex;
   justify-content: center;
@@ -165,9 +165,10 @@ main {
 }
 
 .pause {
+  position: relative;
   height: 100px;
-  width: 140px;
-  border-radius: 30px;
+  width: 100px;
+  border-radius: 50%;
   font-size: 32px;
   border: none;
   background-color: rgb(105, 155, 155);

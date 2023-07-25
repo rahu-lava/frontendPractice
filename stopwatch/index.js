@@ -131,7 +131,7 @@ var lapsDisplay = document.querySelector(".laps-display");
 var lapsCountDisplay = document.querySelector(".numbering");
 var lapsCount = 0;
 
-lapsDisplay.style.display = "none";
+// lapsDisplay.style.display = "none";
 reset.style.display = "none";
 pause.style.display = "none";
 timelaps.style.display = "none";
@@ -149,12 +149,46 @@ const blinkrevert = () => {
   document.querySelector(".time-ms").style.display = "flex";
 };
 
+playPauseButton.addEventListener("click",(event)=>{
+   event.preventDefault();
+  pause.style.transition = "border-radius .5s 0s,width .5s 0s";
+  setTimeout(()=>{
+    pause.style.width = "240px";
+    pause.style.borderRadius = "40px";
+    playPauseButton.style.width = "140px";
+    playPauseButton.style.borderRadius = "30px";
+
+  },10)
+})
+
+pause.addEventListener("click",(event)=>{
+  event.preventDefault();
+ playPauseButton.style.transition = "border-radius .5s 0s,width .5s 0s";
+ setTimeout(()=>{
+   playPauseButton.style.width = "100px";
+   playPauseButton.style.borderRadius = "50%";
+   pause.style.width = "100px";
+   pause.style.borderRadius = "50%";
+
+ },10)
+})
+
+timelaps.addEventListener("click",(event)=>{
+  event.preventDefault()
+  document.querySelector(".running-timer").style.transition = "margin-top .5s 0s";
+  setTimeout(()=>{
+    document.querySelector(".overflow").style.height = "40vh";
+  },500)
+})
+
+ 
 
 playPauseButton.addEventListener("click", () => {
   var secondInterval = setInterval(secondChanger, 1000);
   var msInterval = setInterval(msChanger, 10);
   playPauseButton.style.display = "none";
   pause.style.display = "revert";
+  
   reset.style.display = "revert";
   timelaps.style.display = "revert";
 
@@ -210,13 +244,24 @@ playPauseButton.addEventListener("click", () => {
     document.querySelector(".running-timer").style.marginTop = "100px";
     document.querySelector(".action").style.marginTop = "45px";
     lapsCount = 0;
+     playPauseButton.style.transition = "border-radius .5s 0s,width .5s 0s";
+     setTimeout(()=>{
+       playPauseButton.style.width = "100px";
+       playPauseButton.style.borderRadius = "50%";
+       pause.style.width = "100px";
+       pause.style.borderRadius = "50%";
+     },10)
+     document.querySelector(".overflow").style.height = "4vh"
+    
   });
 });
+
+
 
 timelaps.addEventListener("click", () => {
   lapsDisplay.style.display = "revert";
   document.querySelector(".running-timer").style.marginTop = "10px";
-  document.querySelector(".action").style.marginTop = "-80px";
+  
   lapsCount += 1;
   if (timePeriodOfHour < 10) {
     var element = document.createElement("p");

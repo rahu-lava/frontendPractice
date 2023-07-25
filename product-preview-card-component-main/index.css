@@ -13,7 +13,7 @@
 }
 @font-face {
     font-family: fraunce;
-    src: url(fonts/Fraunces/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf);
+    src: url(fonts/Fraunces/Fraunces-VariableFont_SOFT_WONK_opsz_wght.ttf);
 }
 body{
     display: flex;
