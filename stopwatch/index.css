@@ -188,7 +188,14 @@ main {
 }
 
 
-@media (width<450px) {
+@media(width<450px){
+  .action .resetArea,.action .lapsArea{
+    width: 90px;
+  }
+}
+
+
+@media (width<350px) {
   body {
     font-size: 35px;
   }
