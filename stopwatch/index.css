@@ -134,17 +134,21 @@ main {
 .action {
   display: flex;
   position: absolute;
-  bottom: 2%;
-  backdrop-filter: blur(0.75px);
+  bottom: 5%;
+  backdrop-filter: blur(0.55px);
 }
 
 .action section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 130px;
-  width: 160px;
-  margin: 0px;
+  height: 120px;
+  width: 140px;
+  
+}
+
+.buttonChange{
+  background-color: rgba(0, 0, 0, 0.295);
 }
 
 .playPause
@@ -184,7 +188,7 @@ main {
 }
 
 
-@media (width<350px) {
+@media (width<450px) {
   body {
     font-size: 35px;
   }
@@ -196,15 +200,20 @@ main {
     padding: 20px;
   }
   .action section {
-    width: 90px;
+    width: 140px;
+    height: 100px;
   }
+  .action .resetArea,.action .lapsArea{
+    width: 70px;
+  }
+
   .playPause {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
   }
   .pause {
-    height: 80px;
+    height: 100px;
     width: 100px;
   }
   .reset,

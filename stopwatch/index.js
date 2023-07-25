@@ -177,7 +177,7 @@ timelaps.addEventListener("click",(event)=>{
   event.preventDefault()
   document.querySelector(".running-timer").style.transition = "margin-top .5s 0s";
   setTimeout(()=>{
-    document.querySelector(".overflow").style.height = "40vh";
+    document.querySelector(".overflow").style.height = "236px";
   },500)
 })
 
