@@ -109,6 +109,7 @@ const msChanger = () => {
     addtwodigitKeeperMs();
     timePeriodOfMs = 0;
     ms.textContent = timePeriodOfMs;
+    secondChanger()
   } else {
     if (timePeriodOfMs === 9) {
       removetwodigitKeeperMs();
@@ -184,7 +185,6 @@ timelaps.addEventListener("click",(event)=>{
  
 
 playPauseButton.addEventListener("click", () => {
-  var secondInterval = setInterval(secondChanger, 1000);
   var msInterval = setInterval(msChanger, 10);
   playPauseButton.style.display = "none";
   pause.style.display = "revert";
@@ -193,7 +193,6 @@ playPauseButton.addEventListener("click", () => {
   timelaps.style.display = "revert";
 
   pause.addEventListener("click", () => {
-    clearInterval(secondInterval);
     clearInterval(msInterval);
 
     var blinkout = setInterval(blinkrevert, 500);
@@ -229,7 +228,6 @@ playPauseButton.addEventListener("click", () => {
     ms.textContent = timePeriodOfMs;
     playPauseButton.style.display = "revert";
     pause.style.display = "none";
-    clearInterval(secondInterval);
     clearInterval(msInterval);
     addtwodigitKeeperMs();
     addtwodigitKeeperS();
